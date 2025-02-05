@@ -1,5 +1,5 @@
 const PlaceOrder = () => {
-  return <div>PlaceOrder</div>;
+  return <div className="">PlaceOrder</div>;
 };
 
 export default PlaceOrder;
