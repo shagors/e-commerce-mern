@@ -35,7 +35,7 @@ const Add = ({ token }) => {
       image4 && formData.append("image4", image4);
 
       const response = await axios.post(
-        "http://localhost:4000" + "/api/product/add",
+        "backendUrl" + "/api/product/add",
         formData,
         { headers: { token } }
       );
