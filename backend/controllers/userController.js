@@ -1,5 +1,5 @@
 import validator from "validator";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import userModel from "../models/userModel.js";
 
@@ -15,7 +15,7 @@ const loginUser = async (req, res) => {
     const user = await userModel.findOne({ email });
 
     if (!user) {
-      return res.json({ success: false, message: "User doesn't exists" });
+      return res.json({ success: false, message: "User doesn't exist" });
     }
 
     const ismatch = await bcrypt.compare(password, user.password);
@@ -32,19 +32,19 @@ const loginUser = async (req, res) => {
   }
 };
 
-// route for user Registration
+// Route for user registration
 const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
-    //  checking user exist or not
+    // Checking if user exists
     const exists = await userModel.findOne({ email });
 
     if (exists) {
       return res.json({ success: false, message: "User already exists" });
     }
 
-    // validating email format & password
+    // Validating email format & password
     if (!validator.isEmail(email)) {
       return res.json({
         success: false,
@@ -58,7 +58,7 @@ const registerUser = async (req, res) => {
       });
     }
 
-    // password hashing
+    // Password hashing
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
@@ -79,7 +79,7 @@ const registerUser = async (req, res) => {
   }
 };
 
-// route for admin login
+// Route for admin login
 const adminLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
