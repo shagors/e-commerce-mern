@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { assets } from "../assets/assets";
 import { toast } from "react-toastify";
