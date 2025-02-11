@@ -28,7 +28,8 @@ const Add = ({ token }) => {
       formData.append("price", price);
       formData.append("category", category);
       formData.append("subCategory", subCategory);
-      formData.append("bestseller", bestseller);
+      // formData.append("bestseller", bestseller);
+      formData.append("bestseller", bestseller.toString()); // Convert boolean to string
       formData.append("sizes", JSON.stringify(sizes));
       image1 && formData.append("image1", image1);
       image2 && formData.append("image2", image2);
@@ -57,6 +58,8 @@ const Add = ({ token }) => {
       toast.error(error.message);
     }
   };
+
+  console.log("Bestseller toggled:", bestseller);
 
   return (
     <form
