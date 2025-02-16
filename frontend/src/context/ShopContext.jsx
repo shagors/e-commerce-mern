@@ -113,6 +113,7 @@ const ShopContextProvider = ({ children }) => {
     setSearch,
     showSearch,
     setShowSearch,
+    setCartItems,
     cartItems,
     addToCart,
     getCartCount,
