@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import { useContext, useState } from "react";
 import { assets } from "../assets/assets";
 import CartTotal from "../components/CartTotal";
