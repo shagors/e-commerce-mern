@@ -9,6 +9,7 @@ import {
   userOrders,
   updateStatus,
   verifyStripe,
+  verifyRazorPay,
 } from "../controllers/orderController.js";
 
 const orderRouter = express.Router();
@@ -27,5 +28,6 @@ orderRouter.post("/userorders", authUser, userOrders);
 
 // verify payment
 orderRouter.post("/verifyStripe", authUser, verifyStripe);
+orderRouter.post("/verifyRazorpay", authUser, verifyRazorPay);
 
 export default orderRouter;
